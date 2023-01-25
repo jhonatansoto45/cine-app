@@ -2060,4 +2060,10 @@ export class CineAppService {
       headers: this.headers,
     });
   }
+
+  getMovieId(id: string): Observable<Pelicula> {
+    return this.http.get<Pelicula>(`${this.baseUrl}${id}`, {
+      headers: this.headers,
+    });
+  }
 }

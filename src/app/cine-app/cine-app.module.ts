@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 import { CineAppRoutingModule } from './cine-app-routing.module';
+import { ComponentsReusableModule } from './components/components-reusable.module';
 
 import { HomeComponent } from './pages/home/home.component';
 import { DetalleComponent } from './pages/detalle/detalle.component';
@@ -27,6 +28,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     CineAppRoutingModule,
+    ComponentsReusableModule,
     IvyCarouselModule,
     SharedModule,
   ],

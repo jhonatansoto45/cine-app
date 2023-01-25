@@ -27,6 +27,7 @@
       *ngFor="let pelicula of peliculas; let i = index"
       [style.background-image]="'url(' + pelicula.image + ')'"
       [ngStyle]="{ cursor: 'pointer' }"
+      [title]="pelicula.title"
       (click)="detallePelicula(i)"
     ></div>
   </div>

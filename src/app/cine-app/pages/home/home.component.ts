@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Pelicula } from '../../interface/cine-app.interface';
 import { CineAppService } from '../../service/cine-app.service';
 import { ImageService } from '../../service/image.service';
@@ -13,7 +14,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private cineService: CineAppService,
-    private posterService: ImageService
+    private posterService: ImageService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -40,5 +42,6 @@ export class HomeComponent implements OnInit {
 
   detallePelicula(index: number): void {
     console.log(index);
+    this.router.navigate(['./peliculas/detalle', index]);
   }
 }

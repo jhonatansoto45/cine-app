@@ -1,0 +1,48 @@
+.info {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.info__picture {
+  width: 100px;
+  height: 100%;
+
+  .info__img {
+    width: 100%;
+  }
+}
+
+.info__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.info__title {
+  font-size: 1.9rem;
+  color: var(--color);
+  font-family: "Unbounded", cursive;
+}
+
+.info__description {
+  font-size: 1.1rem;
+  color: var(--color-gray);
+}
+
+.info__chips{
+  margin-top: 10px;
+}
+
+.info__chipitem {
+  background-color: #d9c9ba;
+  padding: 6px;
+  border-radius: 30px;
+  margin: 0 7px;
+}
