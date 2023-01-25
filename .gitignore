@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 #credentials
-./environments/environment.backup
+/environments/environment.backup.ts

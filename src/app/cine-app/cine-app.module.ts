@@ -27,7 +27,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     CineAppRoutingModule,
-    /* IvyCarouselModule, */
+    IvyCarouselModule,
     SharedModule,
   ],
 })
