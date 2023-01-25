@@ -1,0 +1,35 @@
+<section class="legend">
+  <article class="legend__article">
+    <h1 class="legend__title">Las mejores peliculas de este mes</h1>
+    <button class="legend__cta">Cartelera</button>
+  </article>
+  <article class="legend__banner">
+    <!-- <carousel
+      class="legend__carousel"
+      [images]="images"
+      [width]="500"
+      [height]="500"
+      [autoplay]="true"
+      [autoplayInterval]="100"
+      [transitionDuration]="5000"
+      [borderRadius]="50"
+      [loop]="true"
+      [arrows]="false"
+      [pauseOnHover]="true"
+    >
+    </carousel> -->
+  </article>
+</section>
+
+<section class="cartelera">
+  <h1 class="cartelera__title">Cartelera</h1>
+  <p class="cartelera__description">Estas son las películas disponibles.</p>
+  <div class="cartelera__card">
+    <div
+      class="cartelera__item"
+      *ngFor="let pelicula of peliculas"
+      [style.background-image]="'url(' + pelicula.image + ')'"
+      [ngStyle]="{ cursor: 'pointer' }"
+    ></div>
+  </div>
+</section>

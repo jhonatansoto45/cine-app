@@ -1,0 +1,34 @@
+<div class="header">
+  <figure class="header__logo">
+    <img src="../../../assets/images/logo.png" alt="Logo" class="header__img" />
+  </figure>
+  <div class="header__option">
+    <div class="header__item">
+      <h3 class="header__title">Ubicación</h3>
+      <select name="ubicacion">
+        <option
+          *ngFor="let ubicacion of ubicaciones"
+          [value]="ubicacion.posicion"
+        >
+          {{ ubicacion.posicion }}
+        </option>
+      </select>
+    </div>
+    <div class="header__item">
+      <h3 class="header__title">Sucursal</h3>
+      <select name="sucursal">
+        <option *ngFor="let sucursal of sucursales" [value]="sucursal.nombre">
+          {{ sucursal.nombre }}
+        </option>
+      </select>
+    </div>
+    <div class="header__item">
+      <h3 class="header__title">Fecha</h3>
+      <select name="fecha">
+        <option *ngFor="let fecha of fechas" [value]="fecha.fecha">
+          {{ fecha.fecha }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>

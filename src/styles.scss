@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Unbounded:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --color: #e8e8e8;
+  --bg: #212121;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/*
+font-family: 'Inter', sans-serif;
+font-family: 'Unbounded', cursive;*/
+
+body {
+  background-color: var(--bg);
+  font-family: "Inter", sans-serif;
+}

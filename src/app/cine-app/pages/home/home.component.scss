@@ -1,0 +1,89 @@
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 55px auto 0;
+
+  .legend__article {
+    width: 50%;
+  }
+
+  .legend__banner {
+    width: 50%;
+
+    .legend__carousel {
+      width: 100%;
+    }
+  }
+}
+
+.legend__title {
+  font-family: "Unbounded", cursive;
+  font-size: 5rem;
+  font-weight: 600;
+  color: var(--color);
+}
+
+.legend__cta {
+  padding: 15px;
+  border-radius: 25px;
+  background-color: var(--color);
+  color: var(--bg);
+  font-weight: 600;
+  width: 150px;
+  text-align: center;
+  margin-top: 27px;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+}
+
+/* CARTELERA */
+
+.cartelera {
+  margin-top: 160px;
+}
+
+.cartelera__title {
+  text-align: center;
+  font-family: "Unbounded", cursive;
+  color: var(--color);
+  font-size: 4.5rem;
+  font-weight: 600;
+}
+
+.cartelera__description {
+  text-align: center;
+  color: var(--color);
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.cartelera__card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+
+  .cartelera__item {
+    display: flex;
+    width: 400px;
+    height: 550px;
+    border-radius: 50px;
+    border: 1px solid var(--color);
+    transition: 0.3s ease-out;
+  }
+}
+//* HOVER
+.cartelera__card:hover .cartelera__item {
+  filter: blur(3px);
+}
+
+.cartelera__card:hover .cartelera__item:hover {
+  transform: scale(1);
+  filter: blur(0px);
+  opacity: 1;
+  box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
+}
