@@ -1,7 +1,7 @@
 <section class="legend">
   <article class="legend__article">
     <h1 class="legend__title">Las mejores peliculas de este mes</h1>
-    <button class="legend__cta">Cartelera</button>
+    <button (click)="cartelera()" class="legend__cta">Cartelera</button>
   </article>
   <article class="legend__banner">
     <carousel
@@ -10,10 +10,8 @@
       [width]="900"
       [height]="500"
       [autoplay]="true"
-      [autoplayInterval]="1000"
-      [transitionDuration]="5000"
+      [autoplayInterval]="3000"
       [borderRadius]="50"
-      [loop]="true"
       [arrows]="false"
     >
     </carousel>
@@ -26,9 +24,10 @@
   <div class="cartelera__card">
     <div
       class="cartelera__item"
-      *ngFor="let pelicula of peliculas"
+      *ngFor="let pelicula of peliculas; let i = index"
       [style.background-image]="'url(' + pelicula.image + ')'"
       [ngStyle]="{ cursor: 'pointer' }"
+      (click)="detallePelicula(i)"
     ></div>
   </div>
 </section>

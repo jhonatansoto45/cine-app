@@ -9,6 +9,7 @@
 }
 
 .header__logo {
+  display: inline-block;
   width: 75px;
   height: 75px;
   padding: 8px;
@@ -23,7 +24,6 @@
 
 .header__option {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 35px;
@@ -42,4 +42,25 @@ select {
   border: none;
   background-color: var(--color);
   outline: none;
+}
+
+@media screen and (max-width: 870px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .header__logo {
+    margin: 0 auto 10px;
+  }
+
+  .header__option {
+    flex-grow: 1;
+  }
+}
+
+@media screen and (max-width: 750px){
+
+  .header__option{
+    flex-direction: column;
+  }
 }

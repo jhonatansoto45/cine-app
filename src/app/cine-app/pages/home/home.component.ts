@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.peliculas = this.cineService.data
+    this.peliculas = this.cineService.data;
     /* this.cineService.getMovies().subscribe((movies) => {
       console.log(movies);
 
@@ -27,5 +27,18 @@ export class HomeComponent implements OnInit {
 
   get images() {
     return [...this.posterService.posters];
+  }
+
+  cartelera(): void {
+    const heightDiv = document.querySelector('.legend')?.clientHeight;
+
+    window.scrollTo({
+      behavior: 'smooth',
+      top: heightDiv! + 480,
+    });
+  }
+
+  detallePelicula(index: number): void {
+    console.log(index);
   }
 }
