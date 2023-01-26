@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SharedService {
+
   ubicaciones: { posicion: string }[] = [
     {
       posicion: 'Calle 80',
@@ -63,4 +64,6 @@ export class SharedService {
   ];
 
   constructor() {}
+
+
 }

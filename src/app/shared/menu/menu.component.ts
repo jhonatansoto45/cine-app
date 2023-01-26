@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { SharedService } from '../service/shared.service';
 
 @Component({
@@ -6,8 +7,8 @@ import { SharedService } from '../service/shared.service';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent implements OnInit {
-  constructor(private sharedService: SharedService) {}
+export class MenuComponent {
+  constructor(private sharedService: SharedService, private router: Router) {}
 
   get ubicaciones() {
     return [...this.sharedService.ubicaciones];
@@ -17,9 +18,11 @@ export class MenuComponent implements OnInit {
     return [...this.sharedService.sucursales];
   }
 
-  get fechas(){
-    return [...this.sharedService.fechas]
+  get fechas() {
+    return [...this.sharedService.fechas];
   }
 
-  ngOnInit(): void {}
+  redirectHome(): void {
+    this.router.navigate(['./peliculas/home']);
+  }
 }

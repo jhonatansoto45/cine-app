@@ -23,6 +23,9 @@
   justify-content: flex-start;
   align-items: flex-start;
   gap: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .info__title {
@@ -36,8 +39,9 @@
   color: var(--color-gray);
 }
 
-.info__chips{
+.info__chips {
   margin-top: 10px;
+  height: 30px;
 }
 
 .info__chipitem {
@@ -45,4 +49,57 @@
   padding: 6px;
   border-radius: 30px;
   margin: 0 7px;
+}
+
+.trailer {
+  margin-top: 35px;
+}
+
+.trailer__title {
+  font-size: 1.5rem;
+  color: var(--color);
+  margin-bottom: 10px;
+}
+
+.iframe {
+  margin-bottom: 40px;
+}
+
+.trailer__sipnosis {
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+}
+
+.trailer__subtitle {
+  font-size: 1.5rem;
+  color: var(--color);
+  margin-bottom: 10px;
+}
+
+.trailer__description {
+  color: var(--color);
+}
+
+.creditos {
+  margin-top: 15px;
+  padding: 15px;
+}
+
+.creditos__title {
+  font-size: 1.5rem;
+  color: var(--color);
+  margin-bottom: 10px;
+}
+
+.creditos__label {
+  font-size: 1.3rem;
+  color: var(--color);
+  margin-bottom: 15px;
+}
+
+.creditos__description {
+  display: inline-block;
+  color: var(--color);
+  margin-bottom: 25px;
 }

@@ -20,6 +20,7 @@ export class DetalleComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.cineService.scrollTop();
     /*     this.activatedRoute.params
       .pipe(switchMap(({ id }) => this.cineService.getMovieId(id)))
       .subscribe((movie) => {}); */

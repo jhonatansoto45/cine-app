@@ -2066,4 +2066,11 @@ export class CineAppService {
       headers: this.headers,
     });
   }
+
+  scrollTop(): void {
+    window.scrollTo({
+      behavior: 'smooth',
+      top: 0,
+    });
+  }
 }

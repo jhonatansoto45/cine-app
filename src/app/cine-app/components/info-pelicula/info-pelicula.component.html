@@ -3,38 +3,48 @@
     <img [src]="movie.image" [alt]="movie.title" class="info__img" />
   </figure>
   <article class="info__card">
-    <h4 class="info__title">Spider</h4>
-    <p class="info__description">Spider-Man - No way Home - (EEUU 2021)</p>
+    <h4 class="info__title">{{ movie.title }}</h4>
+    <p class="info__description">{{ movie.title }} - ({{ movie.year }})</p>
     <div class="info__chips">
-      <span class="info__chipitem"> +12 </span>
-      <span class="info__chipitem"> 148min </span>
-      <span class="info__chipitem"> Acción y Aventuras </span>
+      <span *ngFor="let genero of movie.genre" class="info__chipitem">
+        {{ genero }}
+      </span>
     </div>
   </article>
 </section>
 
 <section class="trailer">
-  <div class="iframe"></div>
+  <h4 class="trailer__title">Trailer</h4>
+  <div class="iframe">
+    <iframe
+      width="770"
+      height="350"
+      [src]="video"
+      [title]="movie.title"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
   <article class="trailer__sipnosis">
     <h4 class="trailer__title">Sinopsis</h4>
     <p class="trailer__description">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore ipsum,
-      mollitia aliquid ex deserunt hic et optio soluta illum officia excepturi
-      possimus culpa voluptates ducimus reiciendis dolorem doloremque
-      dignissimos animi?Lorem ipsum dolor sit amet, consectetur adipisicing
-      elit. Ad, id tempora nesciunt fugit sit, ducimus at adipisci fugiat aut
-      commodi, sequi ab veritatis necessitatibus. Doloribus aliquam corrupti
-      debitis autem quo.
+      {{ movie.description  }}
     </p>
   </article>
 </section>
 
 <section class="creditos">
-  <h4 class="creditos__title">Créditos y reparto</h4>
-  <strong class="creditos__label">Actores</strong>
-  <span class="creditos__description"
-    >Tom Hanks, Julia Roberts, Andres Toro, Gerard Butler</span
-  >
+  <h4 class="creditos__title">Escritores y directores</h4>
+  <strong class="creditos__label">Escritores</strong>
+  <br />
+  <span *ngFor="let writer of movie.writers" class="creditos__description">
+    {{ writer }},
+  </span>
+  <br />
   <strong class="creditos__label">Directores</strong>
-  <span class="creditos__description">Bruce Willis</span>
+  <br />
+  <span *ngFor="let director of movie.director" class="creditos__description">
+    {{ director }}
+  </span>
 </section>

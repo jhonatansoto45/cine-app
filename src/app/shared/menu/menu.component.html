@@ -1,5 +1,10 @@
 <div class="header">
-  <figure class="header__logo">
+  <figure
+    class="header__logo"
+    (click)="redirectHome()"
+    [ngStyle]="{ cursor: 'pointer' }"
+    title="Inicio"
+  >
     <img src="../../../assets/images/logo.png" alt="Logo" class="header__img" />
   </figure>
   <div class="header__option">

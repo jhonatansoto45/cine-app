@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.cineService.scrollTop();
     this.peliculas = this.cineService.data;
     /* this.cineService.getMovies().subscribe((movies) => {
       console.log(movies);
@@ -41,7 +42,6 @@ export class HomeComponent implements OnInit {
   }
 
   detallePelicula(index: number): void {
-    console.log(index);
     this.router.navigate(['./peliculas/detalle', index]);
   }
 }
