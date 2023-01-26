@@ -10,7 +10,11 @@
   <div class="header__option">
     <div class="header__item">
       <h3 class="header__title">Ubicación</h3>
-      <select name="ubicacion">
+      <select
+        name="ubicacion"
+        [(ngModel)]="model.ubicacion"
+        (ngModelChange)="emitSelection()"
+      >
         <option
           *ngFor="let ubicacion of ubicaciones"
           [value]="ubicacion.posicion"
@@ -21,7 +25,11 @@
     </div>
     <div class="header__item">
       <h3 class="header__title">Sucursal</h3>
-      <select name="sucursal">
+      <select
+        name="sucursal"
+        [(ngModel)]="model.sucursal"
+        (ngModelChange)="emitSelection()"
+      >
         <option *ngFor="let sucursal of sucursales" [value]="sucursal.nombre">
           {{ sucursal.nombre }}
         </option>
@@ -29,7 +37,11 @@
     </div>
     <div class="header__item">
       <h3 class="header__title">Fecha</h3>
-      <select name="fecha">
+      <select
+        name="fecha"
+        [(ngModel)]="model.fecha"
+        (ngModelChange)="emitSelection()"
+      >
         <option *ngFor="let fecha of fechas" [value]="fecha.fecha">
           {{ fecha.fecha }}
         </option>

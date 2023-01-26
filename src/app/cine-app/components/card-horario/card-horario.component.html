@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="card">
+    <h4 class="card__title">Horarios disponibles - {{ model.fecha }}</h4>
+    <p class="card__legend">Elige el horario que prefieras.</p>
+
+    <div class="card__sucursal">
+      <p class="card__sucursalName">
+        <span> {{ model.sucursal }} - {{ model.ubicacion }} </span>
+      </p>
+      <p class="card__idioma">ESP</p>
+      <div class="card__horarios">
+        <span
+          (click)="seletedHorario($event)"
+          [id]="1"
+          class="card__chipHorario"
+          >5:00</span
+        >
+        <span
+          (click)="seletedHorario($event)"
+          [id]="2"
+          class="card__chipHorario"
+          >6:30</span
+        >
+        <span
+          (click)="seletedHorario($event)"
+          [id]="3"
+          class="card__chipHorario"
+          >8:50</span
+        >
+      </div>
+    </div>
+    <button class="card__cta">
+      <span>Seleccionar Boletos</span>
+    </button>
+  </div>
+</div>
