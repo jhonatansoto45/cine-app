@@ -14,6 +14,12 @@
   scroll-behavior: smooth;
 }
 
+*::selection {
+  background-color: black;
+  color: var(--color);
+  text-shadow: 1px 6px 6px  var(--color-gray);
+}
+
 //* FONTS
 /*
 font-family: 'Inter', sans-serif;

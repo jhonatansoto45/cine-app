@@ -3,10 +3,16 @@
     <img [src]="movie.image" [alt]="movie.title" class="info__img" />
   </figure>
   <article class="info__card">
-    <h4 class="info__title">{{ movie.title }}</h4>
-    <p class="info__description">{{ movie.title }} - ({{ movie.year }})</p>
+    <h4 class="info__title" [title]="movie.title">{{ movie.title }}</h4>
+    <p class="info__description" title="{{ movie.title }} - {{ movie.year }}">
+      {{ movie.title }} - ({{ movie.year }})
+    </p>
     <div class="info__chips">
-      <span *ngFor="let genero of movie.genre" class="info__chipitem">
+      <span
+        *ngFor="let genero of movie.genre"
+        class="info__chipitem"
+        [title]="genero"
+      >
         {{ genero }}
       </span>
     </div>
@@ -29,7 +35,7 @@
   <article class="trailer__sipnosis">
     <h4 class="trailer__title">Sinopsis</h4>
     <p class="trailer__description">
-      {{ movie.description  }}
+      {{ movie.description }}
     </p>
   </article>
 </section>
