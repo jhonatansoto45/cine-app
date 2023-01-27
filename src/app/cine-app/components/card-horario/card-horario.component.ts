@@ -19,7 +19,7 @@ export class CardHorarioComponent implements OnInit {
       (selection) => (this.model = selection)
     );
 
-    this.model = JSON.parse(sessionStorage.getItem('selectionDropdown')!);
+    this.model = this.generalService.getSessionStorage;
   }
 
   ngOnDestroy(): void {
@@ -27,17 +27,24 @@ export class CardHorarioComponent implements OnInit {
   }
 
   seletedHorario(id: number): void {
-    const btns = Array.from(document.querySelectorAll('.card__chipHorario'));
+    const btns = document.querySelectorAll('.card__chipHorario');
 
     for (let index = 0; index < btns.length; index++) {
       const itemClassName = btns[index].className;
       const item = btns[index];
 
-      if (!itemClassName.includes('chip__active') && Number(item.id) === id) {
+      if (Number(item.id) === id && !itemClassName.includes('chip__active')) {
         item.classList.add('chip__active');
-      } else {
+        this.assignSessionStorage(item.innerHTML);
+      } else if (itemClassName.includes('chip__active')) {
         item.classList.remove('chip__active');
+        this.assignSessionStorage('');
       }
     }
+  }
+
+  assignSessionStorage(horario: string): void {
+    this.model = { ...this.model, horario: horario };
+    this.generalService.setSessionStorage(this.model);
   }
 }

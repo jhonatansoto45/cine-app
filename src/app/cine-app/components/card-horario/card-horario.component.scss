@@ -65,47 +65,19 @@
   font-weight: 500;
 }
 
-
-
-//* BUTTON
 .card__cta {
-  background: var(--color);
-  border: none;
-  padding: 10px 20px;
-  display: inline-block;
-  font-size: 15px;
+  font-size: 1.1rem;
   font-weight: 600;
-  width: 100%;
-  text-transform: uppercase;
-  cursor: pointer;
-  transform: skew(-21deg);
-
-  span {
-    display: inline-block;
-    transform: skew(21deg);
-  }
-}
-
-.card__cta::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 100%;
-  left: 0;
-  background: var(--bg);
-  opacity: 0;
-  z-index: -1;
-  transition: all 0.5s;
-  border: 1px solid var(--color);
-}
-
-.card__cta:hover {
   color: var(--color);
+  border: 1px solid var(--color);
+  background-color: var(--bg);
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
 }
 
-.card__cta:hover::before {
-  left: 0;
-  right: 0;
-  opacity: 1;
+.card__cta:disabled {
+  color: var(--bg);
+  border: 1px solid var(--color);
+  background-color: var(--color-gray);
 }

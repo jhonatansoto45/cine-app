@@ -20,8 +20,6 @@
         >
       </div>
     </div>
-    <button class="card__cta">
-      <span>Seleccionar Boletos</span>
-    </button>
+    <button class="card__cta" [disabled]="!this.model.horario">Seleccionar Boletos</button>
   </div>
 </div>

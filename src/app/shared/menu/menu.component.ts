@@ -36,7 +36,7 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    sessionStorage.setItem('selectionDropdown', JSON.stringify(this.model));
+    this.generalService.setSessionStorage(this.model);
   }
 
   redirectHome(): void {
@@ -44,7 +44,7 @@ export class MenuComponent implements OnInit {
   }
 
   emitSelection(): void {
-    sessionStorage.setItem('selectionDropdown', JSON.stringify(this.model));
+    this.generalService.setSessionStorage(this.model);
     this.generalService.menuSelection$.next(this.model);
   }
 }
