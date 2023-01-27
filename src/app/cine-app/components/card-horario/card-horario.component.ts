@@ -26,14 +26,18 @@ export class CardHorarioComponent implements OnInit {
     this.listeningDropdown.unsubscribe();
   }
 
-  seletedHorario(event: MouseEvent): void {
-    const item = event.target as any;
-    item.classList.forEach((element: any) => {
-      if (element.includes('card__chipHorario__active')) {
-        item.classList.remove('card__chipHorario__active');
+  seletedHorario(id: number): void {
+    const btns = Array.from(document.querySelectorAll('.card__chipHorario'));
+
+    for (let index = 0; index < btns.length; index++) {
+      const itemClassName = btns[index].className;
+      const item = btns[index];
+
+      if (!itemClassName.includes('chip__active') && Number(item.id) === id) {
+        item.classList.add('chip__active');
       } else {
-        item.classList.add('card__chipHorario__active');
+        item.classList.remove('chip__active');
       }
-    });
+    }
   }
 }
