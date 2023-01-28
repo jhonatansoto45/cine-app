@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { credentials } from '../../../environments/environment.backup';
+//import { credentials } from '../../../environments/environment.backup';
 import { Pelicula } from '../interface/cine-app.interface';
 
 @Injectable({
@@ -2047,15 +2047,15 @@ export class CineAppService {
     },
   ];
 
-  private baseUrl: string = credentials.baseUrl;
+  /* private baseUrl: string = credentials.baseUrl;
 
   private headers: HttpHeaders = new HttpHeaders()
     .set('X-RapidAPI-Key', credentials.apiKey)
-    .set('X-RapidAPI-Host', credentials.host);
+    .set('X-RapidAPI-Host', credentials.host); */
 
   constructor(private http: HttpClient) {}
 
-  getMovies(): Observable<Pelicula[]> {
+  /* getMovies(): Observable<Pelicula[]> {
     return this.http.get<Pelicula[]>(`${this.baseUrl}`, {
       headers: this.headers,
     });
@@ -2065,7 +2065,7 @@ export class CineAppService {
     return this.http.get<Pelicula>(`${this.baseUrl}${id}`, {
       headers: this.headers,
     });
-  }
+  } */
 
   scrollTop(): void {
     window.scrollTo({
