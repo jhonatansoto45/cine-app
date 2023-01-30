@@ -11,6 +11,7 @@ export class GeneralService {
   constructor() {}
 
   setSessionStorage(model: MenuSelection) {
+    this.menuSelection$.next(model);
     sessionStorage.setItem('selectionDropdown', JSON.stringify(model));
   }
 

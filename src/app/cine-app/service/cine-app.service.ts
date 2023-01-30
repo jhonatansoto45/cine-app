@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 //import { credentials } from '../../../environments/environment.backup';
-import { Pelicula } from '../interface/cine-app.interface';
+import { Boletos, Categoria, Pelicula } from '../interface/cine-app.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -2044,6 +2044,27 @@ export class CineAppService {
         'Pierre Boileau (based on the novel "D\'Entre Les Morts" by)',
       ],
       imdbid: 'tt0052357',
+    },
+  ];
+
+  boletos: Boletos[] = [
+    {
+      categoria: Categoria.adultos,
+      precio: 71,
+      entradas: 0,
+      totalPrecioEntrada: 0
+    },
+    {
+      categoria: Categoria.ninos,
+      precio: 56,
+      entradas: 0,
+      totalPrecioEntrada: 0
+    },
+    {
+      categoria: Categoria.tercerEdad,
+      precio: 56,
+      entradas: 0,
+      totalPrecioEntrada: 0
     },
   ];
 

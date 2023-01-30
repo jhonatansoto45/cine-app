@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.content {
+  width: 100%;
+}
+
+.status {
+  width: 100%;
+}
+
+.boletos {
+  color: var(--color);
+}
+
+.boletos__title {
+  font-family: "Unbounded", cursive;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.boletos__description {
+  font-size: 1.1rem;
+}
+
+.boletos__compra {
+  margin-top: 30px;
+}
+
+.boletos__section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.boletos__compra__card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+}
+
+.boletos__button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  background-color: var(--color);
+  padding: 5px 8px;
+  width: 149px;
+  border-radius: 8px;
+  box-shadow: 12px 8px 15px var(--bg);
+
+  strong {
+    color: var(--bg);
+  }
+
+  button {
+    color: var(--bg);
+    font-size: 1.3rem;
+    border: none;
+    background-color: var(--color);
+    cursor: pointer;
+  }
+
+  span {
+    font-weight: 700;
+    margin-top: 5px;
+  }
+
+  button:active {
+    border-radius: 20%;
+    background-color: var(--color);
+    box-shadow: rgba(0, 0, 0, 0.197) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.777);
+    transform: translateY(0);
+  }
+
+  button:disabled {
+    span {
+      opacity: 0.2;
+    }
+  }
+}

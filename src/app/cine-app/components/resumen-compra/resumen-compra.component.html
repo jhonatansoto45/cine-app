@@ -1,1 +1,34 @@
-<p>resumen-compra works!</p>
+<section class="card">
+  <h1 class="card__title">Resumen de la compra</h1>
+  <article class="card__article">
+    <figure class="card__poster">
+      <img [src]="movie.image" [alt]="movie.title" class="card__img" />
+    </figure>
+    <div class="card__description">
+      <div class="card__item">
+        <strong class="card__subtitle">Película: </strong>
+        <span class="card__value">{{ movie.title }}</span>
+      </div>
+      <div class="card__item">
+        <strong class="card__subtitle">Complejo: </strong>
+        <span class="card__value">{{ menu.sucursal }}</span>
+      </div>
+      <div class="card__item">
+        <strong class="card__subtitle">Fecha: </strong>
+        <span class="card__value">{{ menu.fecha }}</span>
+      </div>
+      <div class="card__item">
+        <strong class="card__subtitle">Horario: </strong>
+        <span class="card__value">{{ menu.horario }}</span>
+      </div>
+    </div>
+  </article>
+  <p class="card__legend">
+    Se realizará un cargo por servicio por cada boleto dentro de la orden
+  </p>
+  <div class="card__price">
+    <h4 class="card__iva">Total (IVA Incluido):</h4>
+    <p class="card__money">{{ total | currency }}</p>
+  </div>
+  <button class="card__cta" [disabled]="total === 0">Continuar</button>
+</section>

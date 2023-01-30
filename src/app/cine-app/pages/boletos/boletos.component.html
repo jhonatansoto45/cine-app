@@ -1,10 +1,36 @@
 <div class="container">
   <div class="content">
-    <ng-container [ngTemplateOutlet]="boletos"></ng-container>
+    <section class="boletos">
+      <h2 class="boletos__title">Selecciona tus boletos</h2>
+      <p class="boletos__description">
+        Puedes comprar 10 boletos máximo por transacción.
+      </p>
+      <div class="boletos__compra">
+        <div
+          *ngFor="let boleto of boletos; let i = index"
+          class="boletos__section"
+        >
+          <h3 class="boletos__compra__title">{{ boleto.categoria }}</h3>
+
+          <div class="boletos__compra__card">
+            <strong>
+              {{ boleto.precio | currency }}
+            </strong>
+            <div class="boletos__button">
+              <button [disabled]="boleto.entradas === 0" (click)="eliminarBoleto(i)">
+                <span class="material-symbols-outlined"> remove </span>
+              </button>
+              <strong> {{ boleto.entradas }} </strong>
+              <button [disabled]="boleto.entradas === 10"  (click)="agregarBoleto(i)">
+                <span class="material-symbols-outlined"> add </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
   <div class="status">
     <app-resumen-compra></app-resumen-compra>
   </div>
 </div>
-
-<ng-template #boletos></ng-template>
