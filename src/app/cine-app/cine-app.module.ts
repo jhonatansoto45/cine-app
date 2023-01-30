@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { IvyCarouselModule } from 'angular-responsive-carousel';
+/* import { IvyCarouselModule } from 'angular-responsive-carousel'; */
 
 import { CineAppRoutingModule } from './cine-app-routing.module';
 import { SharedModule } from '../shared/shared.module';
@@ -27,7 +27,7 @@ import { BoletosComponent } from './pages/boletos/boletos.component';
     CommonModule,
     CineAppRoutingModule,
     ComponentsReusableModule,
-    IvyCarouselModule,
+/*     IvyCarouselModule, */
     SharedModule,
   ],
 })
