@@ -86,3 +86,23 @@
     }
   }
 }
+
+@media screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .boletos__title {
+    text-align: center;
+  }
+
+  .boletos__section {
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+  }
+}
