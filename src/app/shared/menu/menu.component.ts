@@ -38,6 +38,8 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     if (this.generalService.getSessionStorage) {
       this.model = this.generalService.getSessionStorage;
+    } else {
+      this.generalService.setSessionStorage(this.model);
     }
   }
 

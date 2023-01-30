@@ -19,7 +19,9 @@ export class CardHorarioComponent implements OnInit {
     private generalService: GeneralService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) {
+    this.model = this.generalService.getSessionStorage;
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(({ id }) => (this.idMovie = id));
@@ -27,8 +29,6 @@ export class CardHorarioComponent implements OnInit {
     this.listeningDropdown = this.generalService.menuSelection$.subscribe(
       (selection) => (this.model = selection)
     );
-
-    this.model = this.generalService.getSessionStorage;
   }
 
   ngOnDestroy(): void {
