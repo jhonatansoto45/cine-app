@@ -36,7 +36,9 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.model = this.generalService.getSessionStorage;
+    if (this.generalService.getSessionStorage) {
+      this.model = this.generalService.getSessionStorage;
+    }
   }
 
   redirectHome(): void {
