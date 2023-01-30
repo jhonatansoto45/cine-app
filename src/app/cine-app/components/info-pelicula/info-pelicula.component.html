@@ -21,17 +21,14 @@
 
 <section class="trailer">
   <h4 class="trailer__title">Trailer</h4>
-  <div class="iframe">
-    <iframe
-      width="600"
-      height="350"
-      [src]="video"
-      [title]="movie.title"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-    ></iframe>
-  </div>
+  <iframe
+    class="iframe"
+    [src]="video"
+    [title]="movie.title"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
   <article class="trailer__sipnosis">
     <h4 class="trailer__title">Sinopsis</h4>
     <p class="trailer__description">

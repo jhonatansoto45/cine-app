@@ -11,7 +11,6 @@ import { DetalleComponent } from './pages/detalle/detalle.component';
 import { CompraComponent } from './pages/compra/compra.component';
 import { SeleccionComponent } from './pages/seleccion/seleccion.component';
 import { TipoPagoComponent } from './pages/tipo-pago/tipo-pago.component';
-import { EstadoComponent } from './pages/estado/estado.component';
 import { ComponentsReusableModule } from './components/components-reusable.module';
 
 @NgModule({
@@ -21,7 +20,6 @@ import { ComponentsReusableModule } from './components/components-reusable.modul
     CompraComponent,
     SeleccionComponent,
     TipoPagoComponent,
-    EstadoComponent,
   ],
   imports: [
     CommonModule,

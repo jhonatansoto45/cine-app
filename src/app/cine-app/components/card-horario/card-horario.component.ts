@@ -32,13 +32,17 @@ export class CardHorarioComponent implements OnInit {
     for (let index = 0; index < btns.length; index++) {
       const itemClassName = btns[index].className;
       const item = btns[index];
-
       if (Number(item.id) === id && !itemClassName.includes('chip__active')) {
         item.classList.add('chip__active');
         this.assignSessionStorage(item.innerHTML);
-      } else if (itemClassName.includes('chip__active')) {
+      } else if (
+        itemClassName.includes('chip__active') &&
+        Number(item.id) === id
+      ) {
         item.classList.remove('chip__active');
         this.assignSessionStorage('');
+      } else {
+        item.classList.remove('chip__active');
       }
     }
   }
