@@ -18,15 +18,17 @@ export class BoletosComponent implements OnInit {
     private generalService: GeneralService
   ) {
     this.model = this.generalService.getSessionStorage;
-    this.cineService.boletos = this.model.boletos!;
   }
 
   ngOnInit(): void {
     this.cineService.scrollTop();
+    if(this.model.boletos){
+      this.cineService.boletos = this.model.boletos!;
+    }
   }
 
   get boletos(): Boletos[] {
-    return [...this.cineService.boletos];
+    return this.cineService.boletos;
   }
 
   eliminarBoleto(index: number): void {

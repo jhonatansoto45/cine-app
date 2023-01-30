@@ -37,7 +37,7 @@ export class ResumenCompraComponent implements OnInit, OnDestroy {
       (model) => {
         this.total = model.totalNeto!;
         this.menu = model;
-        this.generalService.setSessionStorage(this.menu);
+        //this.generalService.setSessionStorage(this.menu);
       }
     );
   }
