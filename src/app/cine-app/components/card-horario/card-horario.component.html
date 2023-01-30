@@ -20,6 +20,12 @@
         >
       </div>
     </div>
-    <button class="card__cta" [disabled]="!this.model.horario">Seleccionar Boletos</button>
+    <button
+      class="card__cta"
+      [disabled]="!this.model.horario"
+      (click)="navegar()"
+    >
+      Seleccionar Boletos
+    </button>
   </div>
 </div>

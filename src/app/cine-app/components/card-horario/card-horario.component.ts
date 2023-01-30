@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { MenuSelection } from '../../../shared/interface/shared.interface';
 import { GeneralService } from '../../../service/general.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-horario',
@@ -12,9 +13,17 @@ export class CardHorarioComponent implements OnInit {
   listeningDropdown!: Subscription;
   model!: MenuSelection;
 
-  constructor(private generalService: GeneralService) {}
+  idMovie: number = 0;
+
+  constructor(
+    private generalService: GeneralService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(({ id }) => (this.idMovie = id));
+
     this.listeningDropdown = this.generalService.menuSelection$.subscribe(
       (selection) => (this.model = selection)
     );
@@ -50,5 +59,9 @@ export class CardHorarioComponent implements OnInit {
   assignSessionStorage(horario: string): void {
     this.model = { ...this.model, horario: horario };
     this.generalService.setSessionStorage(this.model);
+  }
+
+  navegar(): void {
+    this.router.navigate(['./peliculas/boletos', this.idMovie]);
   }
 }

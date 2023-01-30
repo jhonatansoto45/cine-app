@@ -12,6 +12,7 @@ import { CompraComponent } from './pages/compra/compra.component';
 import { SeleccionComponent } from './pages/seleccion/seleccion.component';
 import { TipoPagoComponent } from './pages/tipo-pago/tipo-pago.component';
 import { ComponentsReusableModule } from './components/components-reusable.module';
+import { BoletosComponent } from './pages/boletos/boletos.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ComponentsReusableModule } from './components/components-reusable.modul
     CompraComponent,
     SeleccionComponent,
     TipoPagoComponent,
+    BoletosComponent,
   ],
   imports: [
     CommonModule,
