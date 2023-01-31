@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { GeneralService } from 'src/app/service/general.service';
-import { MenuSelection } from 'src/app/shared/interface/shared.interface';
 import { Pelicula } from '../../interface/cine-app.interface';
 import { CineAppService } from '../../service/cine-app.service';
 
@@ -13,8 +12,6 @@ import { CineAppService } from '../../service/cine-app.service';
 })
 export class ResumenCompraComponent implements OnInit, OnDestroy {
   movie!: Pelicula;
-  menu!: MenuSelection;
-  model!: MenuSelection;
   modelSubscription!: Subscription;
 
   total: number = 0;
@@ -24,8 +21,8 @@ export class ResumenCompraComponent implements OnInit, OnDestroy {
     private cineService: CineAppService,
     private activatedRouter: ActivatedRoute
   ) {
-    this.menu = this.generalService.getSessionStorage;
-    this.total = this.menu.totalNeto!;
+    /* this.menu = this.generalService.getSessionStorage;
+    this.total = this.menu.totalNeto!; */
   }
 
   ngOnInit(): void {
@@ -36,7 +33,7 @@ export class ResumenCompraComponent implements OnInit, OnDestroy {
     this.modelSubscription = this.generalService.menuSelection$.subscribe(
       (model) => {
         this.total = model.totalNeto!;
-        this.menu = model;
+        //this.menu = model;
         //this.generalService.setSessionStorage(this.menu);
       }
     );

@@ -7,29 +7,29 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { MenuSelection } from '../../shared/interface/shared.interface';
 import { GeneralService } from '../../service/general.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CineAppGuard implements CanActivate {
-  model!: MenuSelection;
+
 
   constructor(private generalService: GeneralService, private router: Router) {
-    this.model = this.generalService.getSessionStorage;
+    //this.model = this.generalService.getSessionStorage;
   }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | boolean {
-    console.log(this.model.horario);
+   /*  console.log(this.model.horario);
 
     if (this.model.horario) {
       return true;
     } else {
       this.router.navigate(['./peliculas']);
       return false;
-    }
+    } */
+    return true
   }
 }

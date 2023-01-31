@@ -1,64 +1,72 @@
 import { Injectable } from '@angular/core';
+import { MenuItem } from '../interface/shared.interface';
 @Injectable({
   providedIn: 'root',
 })
 export class SharedService {
-
-  ubicaciones: { posicion: string }[] = [
+  listados: MenuItem[] = [
     {
-      posicion: 'Calle 80',
+      menu: 'Ubicaciones',
+      children: [
+        {
+          nombre: 'Calle 80',
+        },
+        {
+          nombre: 'Calle 13 con Av Boyacá',
+        },
+        {
+          nombre: 'Av Ciudad de Cali',
+        },
+        {
+          nombre: 'Av Ciudad de Cali con Americas',
+        },
+        {
+          nombre: 'Calle 13',
+        },
+      ],
     },
     {
-      posicion: 'Calle 13 con Av Boyacá',
-    },
-
-    {
-      posicion: 'Av Ciudad de Cali',
-    },
-    {
-      posicion: 'Av Ciudad de Cali con Americas',
-    },
-    {
-      posicion: 'Calle 13',
-    },
-  ];
-
-  sucursales: { nombre: string }[] = [
-    {
-      nombre: 'CineColombia Titan',
-    },
-    {
-      nombre: 'Cinemark Multiplaza',
-    },
-    {
-      nombre: 'Cinepolis Hayuelos',
+      menu: 'Cines Cercanos',
+      children: [
+        {
+          nombre: 'CineColombia Titan',
+        },
+        {
+          nombre: 'Cinemark Multiplaza',
+        },
+        {
+          nombre: 'Cinepolis Hayuelos',
+        },
+        {
+          nombre: 'Procinal Tintal',
+        },
+        {
+          nombre: 'CineColombia Portal 80',
+        },
+        {
+          nombre: 'Procinal Viva Fontibon',
+        },
+      ],
     },
     {
-      nombre: 'Procinal Tintal',
-    },
-    {
-      nombre: 'CineColombia Portal 80',
-    },
-    {
-      nombre: 'Procinal Viva Fontibon',
-    },
-  ];
-
-  fechas: { fecha: string }[] = [
-    {
-      fecha: '31 de Enero',
-    },
-    {
-      fecha: '1 de Febrero',
-    },
-    {
-      fecha: '2 de Febrero',
-    },
-    {
-      fecha: '6 de Febrero',
-    },
-    {
-      fecha: '10 de Febrero',
+      menu: 'Fechas',
+      children: [
+        {
+          nombre: '31 de Enero',
+        },
+        {
+          nombre: '1 de Febrero',
+        },
+        {
+          nombre: '2 de Febrero',
+        },
+        {
+          nombre: '6 de Febrero',
+        },
+        {
+          nombre: '10 de Febrero',
+        },
+      ],
     },
   ];
 

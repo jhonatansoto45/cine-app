@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Categoria } from 'src/app/interface/general.interface';
 //import { credentials } from '../../../environments/environment.backup';
-import { Boletos, Categoria, Pelicula } from '../interface/cine-app.interface';
+import {  Pelicula } from '../interface/cine-app.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -2047,7 +2048,7 @@ export class CineAppService {
     },
   ];
 
-  boletos: Boletos[] = [
+  boletos: any[] = [
     {
       categoria: Categoria.adultos,
       precio: 71,

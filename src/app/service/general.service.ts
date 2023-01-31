@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/internal/Subject';
-import { MenuSelection } from '../shared/interface/shared.interface';
+import { EntradaPelicula } from '../interface/general.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GeneralService {
-  menuSelection$: Subject<MenuSelection> = new Subject<MenuSelection>();
+  menuSelection$: Subject<EntradaPelicula> = new Subject<EntradaPelicula>();
 
   constructor() {}
 
-  setSessionStorage(model: MenuSelection) {
+  setSessionStorage(model: EntradaPelicula) {
     this.menuSelection$.next(model);
     sessionStorage.setItem('selectionDropdown', JSON.stringify(model));
   }

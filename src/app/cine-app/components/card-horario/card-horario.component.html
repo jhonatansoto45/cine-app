@@ -1,11 +1,11 @@
 <div class="container">
   <div class="card">
-    <h4 class="card__title">Horarios disponibles - {{ model.fecha }}</h4>
+<!--     <h4 class="card__title">Horarios disponibles - {{ model.fecha }}</h4> -->
     <p class="card__legend">Elige el horario que prefieras.</p>
 
     <div class="card__sucursal">
       <p class="card__sucursalName">
-        <span> {{ model.sucursal }} - {{ model.ubicacion }} </span>
+       <!--  <span> {{ model.sucursal }} - {{ model.ubicacion }} </span> -->
       </p>
       <p class="card__idioma">ESP</p>
       <div class="card__horarios">
@@ -22,9 +22,9 @@
     </div>
     <button
       class="card__cta"
-      [disabled]="!this.model.horario"
       (click)="navegar()"
-    >
+      >
+     <!--  [disabled]="!this.model.horario" -->
       Seleccionar Boletos
     </button>
   </div>

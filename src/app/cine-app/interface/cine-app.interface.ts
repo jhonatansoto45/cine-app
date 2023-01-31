@@ -18,15 +18,3 @@ export interface Pelicula {
   imdbid: string;
 }
 
-export interface Boletos {
-  categoria: Categoria;
-  precio: number;
-  entradas: number;
-  totalPrecioEntrada:number
-}
-
-export enum Categoria {
-  adultos = 'ADULTOS',
-  ninos = 'NIÑOS',
-  tercerEdad = '3ERA EDAD',
-}

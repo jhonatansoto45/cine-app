@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GeneralService } from 'src/app/service/general.service';
-
-import { MenuSelection } from '../interface/shared.interface';
+import { GeneralService } from '../../service/general.service';
 import { SharedService } from '../service/shared.service';
 
 @Component({
@@ -11,36 +9,18 @@ import { SharedService } from '../service/shared.service';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
-  model: MenuSelection = {
-    fecha: '31 de Enero',
-    sucursal: 'Cinemark Multiplaza',
-    ubicacion: 'Calle 80',
-  };
-
   constructor(
     private generalService: GeneralService,
     private sharedService: SharedService,
     private router: Router
   ) {}
 
-  get ubicaciones() {
-    return [...this.sharedService.ubicaciones];
-  }
-
-  get sucursales() {
-    return [...this.sharedService.sucursales];
-  }
-
-  get fechas() {
-    return [...this.sharedService.fechas];
+  get listados() {
+    return [...this.sharedService.listados];
   }
 
   ngOnInit(): void {
-    if (this.generalService.getSessionStorage) {
-      this.model = this.generalService.getSessionStorage;
-    } else {
-      this.generalService.setSessionStorage(this.model);
-    }
+
   }
 
   redirectHome(): void {
@@ -48,7 +28,6 @@ export class MenuComponent implements OnInit {
   }
 
   emitSelection(): void {
-    this.generalService.setSessionStorage(this.model);
-    this.generalService.menuSelection$.next(this.model);
+
   }
 }

@@ -1,4 +1,4 @@
-<div class="header">
+<header class="header">
   <figure
     class="header__logo"
     (click)="redirectHome()"
@@ -8,44 +8,13 @@
     <img src="../../../assets/images/logo.png" alt="Logo" class="header__img" />
   </figure>
   <div class="header__option">
-    <div class="header__item">
-      <h3 class="header__title">Ubicación</h3>
-      <select
-        name="ubicacion"
-        [(ngModel)]="model.ubicacion"
-        (ngModelChange)="emitSelection()"
-      >
-        <option
-          *ngFor="let ubicacion of ubicaciones"
-          [value]="ubicacion.posicion"
-        >
-          {{ ubicacion.posicion }}
-        </option>
-      </select>
-    </div>
-    <div class="header__item">
-      <h3 class="header__title">Sucursal</h3>
-      <select
-        name="sucursal"
-        [(ngModel)]="model.sucursal"
-        (ngModelChange)="emitSelection()"
-      >
-        <option *ngFor="let sucursal of sucursales" [value]="sucursal.nombre">
-          {{ sucursal.nombre }}
-        </option>
-      </select>
-    </div>
-    <div class="header__item">
-      <h3 class="header__title">Fecha</h3>
-      <select
-        name="fecha"
-        [(ngModel)]="model.fecha"
-        (ngModelChange)="emitSelection()"
-      >
-        <option *ngFor="let fecha of fechas" [value]="fecha.fecha">
-          {{ fecha.fecha }}
+    <div class="header__item" *ngFor="let item of listados; let i = index">
+      <h3 class="header__title">{{ item.menu }}</h3>
+      <select>
+        <option *ngFor="let child of item.children" [value]="child.nombre">
+          {{ child.nombre }}
         </option>
       </select>
     </div>
   </div>
-</div>
+</header>

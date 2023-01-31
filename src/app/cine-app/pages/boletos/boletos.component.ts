@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneralService } from 'src/app/service/general.service';
-import { MenuSelection } from 'src/app/shared/interface/shared.interface';
-import { Boletos } from '../../interface/cine-app.interface';
 import { CineAppService } from '../../service/cine-app.service';
 
 @Component({
@@ -10,24 +8,23 @@ import { CineAppService } from '../../service/cine-app.service';
   styleUrls: ['./boletos.component.scss'],
 })
 export class BoletosComponent implements OnInit {
-  model!: MenuSelection;
   readonly maxEntradas: number = 10;
 
   constructor(
     private cineService: CineAppService,
     private generalService: GeneralService
   ) {
-    this.model = this.generalService.getSessionStorage;
+    //this.model = this.generalService.getSessionStorage;
   }
 
   ngOnInit(): void {
     this.cineService.scrollTop();
-    if(this.model.boletos){
+    /* if(this.model.boletos){
       this.cineService.boletos = this.model.boletos!;
-    }
+    } */
   }
 
-  get boletos(): Boletos[] {
+  get boletos() {
     return this.cineService.boletos;
   }
 
@@ -49,12 +46,12 @@ export class BoletosComponent implements OnInit {
   }
 
   private addSessionStorage(): void {
-    this.model.totalNeto = this.boletos.reduce(
+   /*  this.model.totalNeto = this.boletos.reduce(
       (a, b) => a + b.totalPrecioEntrada,
       0
     );
 
     this.model = { ...this.model, boletos: this.boletos };
-    this.generalService.setSessionStorage(this.model);
+    this.generalService.setSessionStorage(this.model); */
   }
 }
