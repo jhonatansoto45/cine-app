@@ -20,7 +20,7 @@ const routes: Routes = [
       {
         path: 'boletos/:id',
         component: BoletosComponent,
-        //canActivate: [CineAppGuard],
+        canActivate: [CineAppGuard],
       },
       {
         path: '**',

@@ -47,8 +47,6 @@ export class MenuComponent implements OnInit {
     if (this.generalService.getSessionStorage) {
       let model = this.generalService.getSessionStorage;
       model[field] = (this.seleccion as any)[field];
-      console.log(model);
-
       this.generalService.setSessionStorage(model);
     } else {
       this.generalService.setSessionStorage(this.seleccion);

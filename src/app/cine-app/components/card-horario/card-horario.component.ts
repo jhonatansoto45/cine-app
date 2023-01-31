@@ -14,6 +14,9 @@ export class CardHorarioComponent implements OnInit {
   listeningDropdown!: Subscription;
   menu!: EntradaPelicula;
 
+  horario: string = '';
+  disabledButton: boolean = true;
+
   constructor(private generalService: GeneralService, private router: Router) {
     if (this.generalService.getSessionStorage) {
       this.menu = this.generalService.getSessionStorage;
@@ -27,6 +30,7 @@ export class CardHorarioComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
+    this.horario = '';
     this.listeningDropdown.unsubscribe();
   }
 
@@ -38,25 +42,27 @@ export class CardHorarioComponent implements OnInit {
       const item = btns[index];
       if (Number(item.id) === id && !itemClassName.includes('chip__active')) {
         item.classList.add('chip__active');
-        this.assignSessionStorage(item.innerHTML);
+        this.horario = item.innerHTML;
+        this.disabledButton = false;
       } else if (
         itemClassName.includes('chip__active') &&
         Number(item.id) === id
       ) {
         item.classList.remove('chip__active');
-        this.assignSessionStorage('');
+        this.disabledButton = true;
       } else {
         item.classList.remove('chip__active');
       }
     }
   }
 
-  assignSessionStorage(horario: string): void {
-    this.menu.horario = horario;
-    this.generalService.setSessionStorage(this.menu);
+  navegar(): void {
+    this.assignSessionStorage();
+    this.router.navigate(['./peliculas/boletos', this.menu.id]);
   }
 
-  navegar(): void {
-    this.router.navigate(['./peliculas/boletos', this.menu.id]);
+  private assignSessionStorage(): void {
+    this.menu.horario = this.horario;
+    this.generalService.setSessionStorage(this.menu);
   }
 }
