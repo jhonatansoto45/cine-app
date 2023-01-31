@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
-
+import { ActivatedRoute } from '@angular/router';
 import { Pelicula } from '../../interface/cine-app.interface';
 import { CineAppService } from '../../service/cine-app.service';
 
@@ -14,17 +12,13 @@ export class DetalleComponent implements OnInit {
   pelicula!: Pelicula;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private cineService: CineAppService
-  ) {}
+    private cineService: CineAppService,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.cineService.scrollTop();
+  }
 
   ngOnInit(): void {
-    this.cineService.scrollTop();
-    /*     this.activatedRoute.params
-      .pipe(switchMap(({ id }) => this.cineService.getMovieId(id)))
-      .subscribe((movie) => {}); */
-
     this.activatedRoute.params.subscribe(({ id }) => {
       this.pelicula = this.dataPeliculas[id];
     });

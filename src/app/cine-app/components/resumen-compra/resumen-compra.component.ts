@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { GeneralService } from 'src/app/service/general.service';
+import { EntradaPelicula } from '../../../interface/general.interface';
+import { GeneralService } from '../../../service/general.service';
 import { Pelicula } from '../../interface/cine-app.interface';
 import { CineAppService } from '../../service/cine-app.service';
 
@@ -12,29 +13,27 @@ import { CineAppService } from '../../service/cine-app.service';
 })
 export class ResumenCompraComponent implements OnInit, OnDestroy {
   movie!: Pelicula;
-  modelSubscription!: Subscription;
+  model!: EntradaPelicula;
 
-  total: number = 0;
+  modelSubscription!: Subscription;
 
   constructor(
     private generalService: GeneralService,
     private cineService: CineAppService,
-    private activatedRouter: ActivatedRoute
+    private router: Router
   ) {
-    /* this.menu = this.generalService.getSessionStorage;
-    this.total = this.menu.totalNeto!; */
+    if (this.generalService.getSessionStorage) {
+      this.model = this.generalService.getSessionStorage;
+      this.movie = this.movieData[this.model.id!];
+    } else {
+      this.router.navigate(['/peliculas/home']);
+    }
   }
 
   ngOnInit(): void {
-    this.activatedRouter.params.subscribe(({ id }) => {
-      this.movie = this.movieData[id];
-    });
-
     this.modelSubscription = this.generalService.menuSelection$.subscribe(
       (model) => {
-        this.total = model.totalNeto!;
-        //this.menu = model;
-        //this.generalService.setSessionStorage(this.menu);
+        this.model = model;
       }
     );
   }

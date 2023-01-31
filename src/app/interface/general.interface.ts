@@ -1,10 +1,11 @@
 export interface EntradaPelicula {
+  id: number | null;
   ubicacion: string;
   sucursal: string;
   fecha: string;
-  horario?: string;
-  boletos?: Boletos[];
-  totalNeto?: number;
+  horario: string;
+  boletos: Boletos[];
+  totalNeto: number;
 }
 
 export interface Boletos {

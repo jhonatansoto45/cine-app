@@ -5,22 +5,22 @@
       <img [src]="movie.image" [alt]="movie.title" class="card__img" />
     </figure>
     <div class="card__description">
-      <!-- <div class="card__item">
+      <div class="card__item">
         <strong class="card__subtitle">Película: </strong>
         <span class="card__value">{{ movie.title }}</span>
       </div>
       <div class="card__item">
         <strong class="card__subtitle">Complejo: </strong>
-        <span class="card__value">{{ menu.sucursal }}</span>
+        <span class="card__value">{{ model.sucursal }}</span>
       </div>
       <div class="card__item">
         <strong class="card__subtitle">Fecha: </strong>
-        <span class="card__value">{{ menu.fecha }}</span>
+        <span class="card__value">{{ model.fecha }}</span>
       </div>
       <div class="card__item">
         <strong class="card__subtitle">Horario: </strong>
-        <span class="card__value">{{ menu.horario }}</span>
-      </div> -->
+        <span class="card__value">{{ model.horario }}</span>
+      </div>
     </div>
   </article>
   <p class="card__legend">
@@ -28,7 +28,7 @@
   </p>
   <div class="card__price">
     <h4 class="card__iva">Total (IVA Incluido):</h4>
-    <p class="card__money">{{ total | currency }}</p>
+    <p class="card__money">{{ model.totalNeto | currency }}</p>
   </div>
-  <button class="card__cta" [disabled]="total === 0">Continuar</button>
+  <button class="card__cta" [disabled]="model.totalNeto === 0">Continuar</button>
 </section>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GeneralService } from 'src/app/service/general.service';
+import { Boletos, EntradaPelicula } from 'src/app/interface/general.interface';
+import { GeneralService } from '../../../service/general.service';
 import { CineAppService } from '../../service/cine-app.service';
 
 @Component({
@@ -9,49 +10,85 @@ import { CineAppService } from '../../service/cine-app.service';
 })
 export class BoletosComponent implements OnInit {
   readonly maxEntradas: number = 10;
+  model: EntradaPelicula = {
+    boletos: [],
+    fecha: '',
+    horario: '',
+    id: null,
+    sucursal: '',
+    totalNeto: 0,
+    ubicacion: '',
+  };
 
   constructor(
-    private cineService: CineAppService,
-    private generalService: GeneralService
+    private generalService: GeneralService,
+    private cineService: CineAppService
   ) {
-    //this.model = this.generalService.getSessionStorage;
+    cineService.scrollTop();
+    if (this.generalService.getSessionStorage) {
+      this.model = this.generalService.getSessionStorage;
+      if (this.model.boletos.length > 0) {
+        cineService.boletos = this.model.boletos;
+      } else {
+        cineService.boletos = this.boletos;
+      }
+    }
   }
 
-  ngOnInit(): void {
-    this.cineService.scrollTop();
-    /* if(this.model.boletos){
-      this.cineService.boletos = this.model.boletos!;
-    } */
-  }
+  ngOnInit(): void {}
 
   get boletos() {
-    return this.cineService.boletos;
-  }
-
-  eliminarBoleto(index: number): void {
-    this.boletos[index].entradas = this.boletos[index].entradas - 1;
-    this.boletos[index].totalPrecioEntrada =
-      this.boletos[index].totalPrecioEntrada - this.boletos[index].precio;
-
-    this.addSessionStorage();
+    return [...this.cineService.boletos];
   }
 
   agregarBoleto(index: number): void {
     if (this.boletos[index].entradas < this.maxEntradas) {
-      this.boletos[index].entradas = this.boletos[index].entradas + 1;
-      this.boletos[index].totalPrecioEntrada =
-        this.boletos[index].totalPrecioEntrada + this.boletos[index].precio;
+      this.numeroEntradas(index, '+');
       this.addSessionStorage();
     }
   }
 
+  eliminarBoleto(index: number): void {
+    this.numeroEntradas(index, '-');
+    this.addSessionStorage();
+  }
+
   private addSessionStorage(): void {
-   /*  this.model.totalNeto = this.boletos.reduce(
+    this.model.totalNeto = this.boletos.reduce(
       (a, b) => a + b.totalPrecioEntrada,
       0
     );
 
-    this.model = { ...this.model, boletos: this.boletos };
-    this.generalService.setSessionStorage(this.model); */
+    this.model.boletos = this.boletos;
+    this.generalService.setSessionStorage(this.model);
+  }
+
+  //* UTILIDADES
+  private numeroEntradas(index: number, operator: '+' | '-'): void {
+    switch (operator) {
+      case '+':
+        this.boletos[index].entradas = this.boletos[index].entradas + 1;
+        this.precioFinal(index, '+');
+        break;
+
+      case '-':
+        this.boletos[index].entradas = this.boletos[index].entradas - 1;
+        this.precioFinal(index, '-');
+        break;
+    }
+  }
+
+  private precioFinal(index: number, operator: '+' | '-'): void {
+    switch (operator) {
+      case '+':
+        this.boletos[index].totalPrecioEntrada =
+          this.boletos[index].totalPrecioEntrada + this.boletos[index].precio;
+        break;
+
+      case '-':
+        this.boletos[index].totalPrecioEntrada =
+          this.boletos[index].totalPrecioEntrada - this.boletos[index].precio;
+        break;
+    }
   }
 }

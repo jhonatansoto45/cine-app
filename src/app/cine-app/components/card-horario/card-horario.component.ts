@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
+
+import { EntradaPelicula } from '../../../interface/general.interface';
 import { GeneralService } from '../../../service/general.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-horario',
@@ -10,23 +12,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CardHorarioComponent implements OnInit {
   listeningDropdown!: Subscription;
+  menu!: EntradaPelicula;
 
-  idMovie: number = 0;
-
-  constructor(
-    private generalService: GeneralService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {
-    //this.model = this.generalService.getSessionStorage;
+  constructor(private generalService: GeneralService, private router: Router) {
+    if (this.generalService.getSessionStorage) {
+      this.menu = this.generalService.getSessionStorage;
+    }
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(({ id }) => (this.idMovie = id));
-
-   /*  this.listeningDropdown = this.generalService.menuSelection$.subscribe(
-      (selection) => (this.model = selection)
-    ); */
+    this.listeningDropdown = this.generalService.menuSelection$.subscribe(
+      (selection) => (this.menu = selection)
+    );
   }
 
   ngOnDestroy(): void {
@@ -55,11 +52,11 @@ export class CardHorarioComponent implements OnInit {
   }
 
   assignSessionStorage(horario: string): void {
-  /*   this.model = { ...this.model, horario: horario };
-    this.generalService.setSessionStorage(this.model); */
+    this.menu.horario = horario;
+    this.generalService.setSessionStorage(this.menu);
   }
 
   navegar(): void {
-    this.router.navigate(['./peliculas/boletos', this.idMovie]);
+    this.router.navigate(['./peliculas/boletos', this.menu.id]);
   }
 }
