@@ -7,19 +7,37 @@
     <div class="card__description">
       <div class="card__item">
         <strong class="card__subtitle">Película: </strong>
-        <span class="card__value">{{ movie.title }}</span>
+        <span class="card__value" [title]="movie.title">{{ movie.title }}</span>
       </div>
       <div class="card__item">
         <strong class="card__subtitle">Complejo: </strong>
-        <span class="card__value">{{ model.sucursal }}</span>
+        <span class="card__value" [title]="model.sucursal">{{
+          model.sucursal
+        }}</span>
       </div>
       <div class="card__item">
         <strong class="card__subtitle">Fecha: </strong>
-        <span class="card__value">{{ model.fecha }}</span>
+        <span class="card__value" [title]="model.fecha">{{ model.fecha }}</span>
       </div>
       <div class="card__item">
         <strong class="card__subtitle">Horario: </strong>
-        <span class="card__value">{{ model.horario }}</span>
+        <span class="card__value" [title]="model.horario">{{
+          model.horario
+        }}</span>
+      </div>
+      <div *ngIf="seleccion" class="card__item">
+        <strong class="card__subtitle">Boletos: </strong>
+        <span class="card__value" [title]="entradasTotalStr() | lowercase">{{
+          entradasTotalStr() | lowercase
+        }}</span>
+      </div>
+      <div *ngIf="seleccion" class="card__item">
+        <strong class="card__subtitle">Sala: </strong>
+        <span class="card__value" [title]="sala">{{ sala }}</span>
+      </div>
+      <div *ngIf="seleccion" class="card__item">
+        <strong class="card__subtitle">Asientos: </strong>
+        <span class="card__value" title="A15, B5, C19">A15, B5, C19</span>
       </div>
     </div>
   </article>
@@ -30,5 +48,11 @@
     <h4 class="card__iva">Total (IVA Incluido):</h4>
     <p class="card__money">{{ model.totalNeto | currency }}</p>
   </div>
-  <button class="card__cta" [disabled]="model.totalNeto === 0">Continuar</button>
+  <button
+    class="card__cta"
+    [disabled]="!seleccion ? model.totalNeto === 0 : true"
+    (click)="navegarSeleccion()"
+  >
+    Continuar
+  </button>
 </section>

@@ -14,7 +14,7 @@
 
           <div class="boletos__compra__card">
             <strong>
-              {{ boleto.precio | currency }}
+              {{ boleto.precioUnitario | currency }}
             </strong>
             <div class="boletos__button">
               <button [disabled]="boleto.entradas === 0" (click)="eliminarBoleto(i)">

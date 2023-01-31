@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Categoria } from 'src/app/interface/general.interface';
+import { Boletos, Categoria } from 'src/app/interface/general.interface';
 //import { credentials } from '../../../environments/environment.backup';
 import {  Pelicula } from '../interface/cine-app.interface';
 
@@ -2048,24 +2048,24 @@ export class CineAppService {
     },
   ];
 
-  boletos: any[] = [
+  boletos: Boletos[] = [
     {
       categoria: Categoria.adultos,
-      precio: 71,
+      precioUnitario: 71,
       entradas: 0,
-      totalPrecioEntrada: 0
+      totalPrecio: 0
     },
     {
       categoria: Categoria.ninos,
-      precio: 56,
+      precioUnitario: 56,
       entradas: 0,
-      totalPrecioEntrada: 0
+      totalPrecio: 0
     },
     {
       categoria: Categoria.tercerEdad,
-      precio: 56,
+      precioUnitario: 56,
       entradas: 0,
-      totalPrecioEntrada: 0
+      totalPrecio: 0
     },
   ];
 

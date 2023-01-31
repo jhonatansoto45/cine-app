@@ -1,7 +1,14 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { EntradaPelicula } from '../../../interface/general.interface';
+import { Boletos, EntradaPelicula } from '../../../interface/general.interface';
 import { GeneralService } from '../../../service/general.service';
 import { Pelicula } from '../../interface/cine-app.interface';
 import { CineAppService } from '../../service/cine-app.service';
@@ -11,9 +18,13 @@ import { CineAppService } from '../../service/cine-app.service';
   templateUrl: './resumen-compra.component.html',
   styleUrls: ['./resumen-compra.component.scss'],
 })
-export class ResumenCompraComponent implements OnInit, OnDestroy {
+export class ResumenCompraComponent implements OnChanges, OnInit, OnDestroy {
   movie!: Pelicula;
   model!: EntradaPelicula;
+
+  @Input() seleccion: boolean = false;
+
+  sala: number = 0;
 
   modelSubscription!: Subscription;
 
@@ -30,12 +41,20 @@ export class ResumenCompraComponent implements OnInit, OnDestroy {
     }
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if ('seleccion' in changes && this.seleccion) {
+      this.sala = Math.floor(Math.random() * 10);
+    }
+  }
+
   ngOnInit(): void {
     this.modelSubscription = this.generalService.menuSelection$.subscribe(
       (model) => {
         this.model = model;
       }
     );
+
+    this.entradasTotalStr();
   }
 
   ngOnDestroy(): void {
@@ -44,5 +63,21 @@ export class ResumenCompraComponent implements OnInit, OnDestroy {
 
   get movieData() {
     return [...this.cineService.data];
+  }
+
+  entradasTotalStr = (): string => {
+    let msg: string = '';
+
+    this.model.boletos.forEach((item: any) => {
+      msg = msg.concat(
+        `${item.entradas} ${item.categoria} ($${item.precio}), `
+      );
+    });
+
+    return msg;
+  };
+
+  navegarSeleccion(): void {
+    this.router.navigate(['/peliculas/seleccion']);
   }
 }

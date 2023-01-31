@@ -4,6 +4,7 @@ import { CineAppGuard } from './guards/cine-app.guard';
 import { BoletosComponent } from './pages/boletos/boletos.component';
 import { DetalleComponent } from './pages/detalle/detalle.component';
 import { HomeComponent } from './pages/home/home.component';
+import { SeleccionComponent } from './pages/seleccion/seleccion.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
         path: 'boletos/:id',
         component: BoletosComponent,
         canActivate: [CineAppGuard],
+      },
+      {
+        path: 'seleccion',
+        component: SeleccionComponent
       },
       {
         path: '**',

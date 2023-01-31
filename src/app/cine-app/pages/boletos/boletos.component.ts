@@ -55,7 +55,7 @@ export class BoletosComponent implements OnInit {
 
   private addSessionStorage(): void {
     this.model.totalNeto = this.boletos.reduce(
-      (a, b) => a + b.totalPrecioEntrada,
+      (a, b) => a + b.totalPrecio,
       0
     );
 
@@ -81,13 +81,13 @@ export class BoletosComponent implements OnInit {
   private precioFinal(index: number, operator: '+' | '-'): void {
     switch (operator) {
       case '+':
-        this.boletos[index].totalPrecioEntrada =
-          this.boletos[index].totalPrecioEntrada + this.boletos[index].precio;
+        this.boletos[index].totalPrecio =
+          this.boletos[index].totalPrecio + this.boletos[index].precioUnitario;
         break;
 
       case '-':
-        this.boletos[index].totalPrecioEntrada =
-          this.boletos[index].totalPrecioEntrada - this.boletos[index].precio;
+        this.boletos[index].totalPrecio =
+          this.boletos[index].totalPrecio - this.boletos[index].precioUnitario;
         break;
     }
   }
